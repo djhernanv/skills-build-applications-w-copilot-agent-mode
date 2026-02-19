@@ -27,7 +27,9 @@ SECRET_KEY = 'django-insecure-xpq3j^v(w04vq7dr_2s%%=(gmta!j%3j#mxg7-iv)nsd1_9akn
 DEBUG = True
 
 
-# Allow all hosts for development
+
+
+# Allow all hosts for API access
 ALLOWED_HOSTS = ['*']
 
 
@@ -93,6 +95,10 @@ DATABASES = {
 }
 
 
+
+# Custom user model
+AUTH_USER_MODEL = 'octofit_tracker.User'
+
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
@@ -130,11 +136,13 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+
 # CORS settings
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOW_HEADERS = ['*']
-CORS_ALLOW_METHODS = ['*']
+CORS_ALLOW_HEADERS = list('*')
+CORS_ALLOW_METHODS = list('*')
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
